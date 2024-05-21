@@ -24,10 +24,10 @@ class GfG {
 class Solution {
     public int longestkSubstr(String s, int k) {
         char[] freq = new char[128];
-        int max = 0;
         char[] chars = s.toCharArray();
         int count = 0;
         int left = 0;
+        int max = 0;
         boolean flag = false;
         for (int i = 0; i < chars.length; i++) {
             freq[chars[i]]++;
@@ -42,7 +42,6 @@ class Solution {
                 flag = (count == k);
                 max = Math.max(max, i - left + 1);
             }
-            
         }
         
         if (!flag) {
@@ -50,6 +49,35 @@ class Solution {
         }
         
         return max;
+        
+        // Map<Character,Integer> map = new HashMap<>();
+        // char[] chars = s.toCharArray();
+        // int left = 0;
+        // int max = 0;
+        // boolean flag = false;
+        // for (int i = 0; i < chars.length; i++) {
+        //     map.put(chars[i], map.getOrDefault(chars[i], 0) + 1);
+        //     while (map.size() > k) {
+        //         map.put(chars[left], map.get(chars[left]) - 1);
+        //         if (map.get(chars[left]) == 0) {
+        //             map.remove(chars[left]);
+        //         }
+        //         left++;
+        //     }
+            
+        //     if (map.size() <= k) {
+        //         flag = (map.size() == k);
+        //         max = Math.max(max, i - left + 1);
+        //     }
+
+        //     if (!flag) {
+        //         return -1;
+        //     }
+        
+        // }
+        
+        
+        // return max;
         
     }
     
